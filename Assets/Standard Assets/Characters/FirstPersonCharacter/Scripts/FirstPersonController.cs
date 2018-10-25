@@ -4,6 +4,7 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
+using TMPro;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -48,7 +49,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject chest;
         public GameObject axe;
         private bool hasAxe;
+        private bool hasEraser;
+        private bool boardErased;
+        private bool bookPulled;
         public GameObject door;
+        public TextMeshPro blackboardText;
+        public GameObject bookshelf;
+        public GameObject ladder;
+        public GameObject eraser;
+        public GameObject book;
 
         //0 = main, 1 = note, 2 = chest, 3 = door
         public int locationIndex;
@@ -73,6 +82,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             axe.gameObject.SetActive(false);
 
             hasAxe = false;
+            hasEraser = false;
+            boardErased = false;
+            bookPulled = false;
 
         }
 
@@ -113,6 +125,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 locationIndex = 0;
                 hasAxe = true;
             } else if (Input.GetMouseButtonDown(0) && locationIndex == 4 && hasAxe) {
+                instructionText.text = "Onto the next room";
+            }
+            else if (Input.GetMouseButtonDown(0) && locationIndex == 5 )
+            {
+                Destroy(eraser.gameObject);
+                hasEraser = true;
+                instructionText.text = "";
+            }
+            else if (Input.GetMouseButtonDown(0) && locationIndex == 6)
+            {
+                boardErased = true;
+                blackboardText.text = "B            L           U         E                 B              O     O  K       ";
+                instructionText.text = "";
+            }
+            else if (Input.GetMouseButtonDown(0) && locationIndex == 7)
+            {
+                bookPulled = true;
+                instructionText.text = "";
+            }
+            else if (Input.GetMouseButtonDown(0) && locationIndex == 8)
+            {
                 instructionText.text = "Onto the next room";
             }
         }
@@ -304,6 +337,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
             } else if (other.gameObject.CompareTag("Door")) {
                 instructionText.text = "Click to break down door";
                 locationIndex = 4;
+            }
+            else if (other.gameObject.CompareTag("Eraser"))
+            {
+                instructionText.text = "Click to pick up eraser";
+                locationIndex = 5;
+            }
+            else if (other.gameObject.CompareTag("Blackboard") && hasEraser)
+            {
+                instructionText.text = "Click to erase board";
+                locationIndex = 6;
+            }
+            else if (other.gameObject.CompareTag("Bookshelf") && boardErased)
+            {
+                instructionText.text = "Click to take blue book";
+                locationIndex = 7;
+            }
+            else if (other.gameObject.CompareTag("Ladder") && bookPulled)
+            {
+                instructionText.text = "Click to climb";
+                locationIndex = 8;
             }
         }
 

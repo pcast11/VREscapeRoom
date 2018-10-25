@@ -8,6 +8,10 @@ TagManager:
   - Code Chest
   - Axe
   - Door
+  - Eraser
+  - Blackboard
+  - Bookshelf
+  - Ladder
   layers:
   - Default
   - TransparentFX
