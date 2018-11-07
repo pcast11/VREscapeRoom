@@ -12,6 +12,7 @@ TagManager:
   - Blackboard
   - Bookshelf
   - Ladder
+  - Key
   layers:
   - Default
   - TransparentFX

@@ -58,6 +58,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject ladder;
         public GameObject eraser;
         public GameObject book;
+        public GameObject key;
+        public GameObject candle;
+        public GameObject fire;
 
         //0 = main, 1 = note, 2 = chest, 3 = door
         public int locationIndex;
@@ -136,7 +139,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             else if (Input.GetMouseButtonDown(0) && locationIndex == 6)
             {
                 boardErased = true;
-                blackboardText.text = "B            L           U         E                 B              O     O  K       ";
+                blackboardText.text = "B            L           U         E                                              B              O     O  K       ";
                 instructionText.text = "";
             }
             else if (Input.GetMouseButtonDown(0) && locationIndex == 7)
@@ -147,6 +150,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             else if (Input.GetMouseButtonDown(0) && locationIndex == 8)
             {
                 instructionText.text = "Onto the next room";
+            }
+            else if (Input.GetMouseButtonDown(0) && locationIndex == 9)
+            {
+                Destroy(key.gameObject);
+                candle.transform.rotation = Quaternion.AngleAxis(90, Vector3.left);
+
             }
         }
 
@@ -357,6 +366,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 instructionText.text = "Click to climb";
                 locationIndex = 8;
+            }
+            else if (other.gameObject.CompareTag("Key"))
+            {
+                instructionText.text = "Click to take key";
+                locationIndex = 9;
             }
         }
 
