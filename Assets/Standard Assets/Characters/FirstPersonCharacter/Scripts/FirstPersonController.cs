@@ -83,6 +83,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             locationIndex = 0;
             codeInput.gameObject.SetActive(false);
             axe.gameObject.SetActive(false);
+            fire.gameObject.SetActive(false);
 
             hasAxe = false;
             hasEraser = false;
@@ -155,6 +156,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 Destroy(key.gameObject);
                 candle.transform.rotation = Quaternion.AngleAxis(90, Vector3.left);
+                fire.gameObject.SetActive(true);
 
             }
         }
