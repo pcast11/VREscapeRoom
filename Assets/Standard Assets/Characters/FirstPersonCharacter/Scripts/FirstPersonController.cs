@@ -157,6 +157,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 Destroy(key.gameObject);
                 candle.transform.rotation = Quaternion.AngleAxis(90, Vector3.left);
                 fire.gameObject.SetActive(true);
+                instructionText.text = "";
 
             }
         }
