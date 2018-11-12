@@ -5,6 +5,8 @@ using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -130,7 +132,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 locationIndex = 0;
                 hasAxe = true;
             } else if (Input.GetMouseButtonDown(0) && locationIndex == 4 && hasAxe) {
-                instructionText.text = "Onto the next room";
+                SceneManager.LoadScene("MiddleFloor");
             }
             else if (Input.GetMouseButtonDown(0) && locationIndex == 5 )
             {
@@ -151,7 +153,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else if (Input.GetMouseButtonDown(0) && locationIndex == 8)
             {
-                instructionText.text = "Onto the next room";
+                SceneManager.LoadScene("Attic");
             }
             else if (Input.GetMouseButtonDown(0) && locationIndex == 9)
             {
@@ -162,7 +164,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 isOnFire = true;
 
             } else if (Input.GetMouseButtonDown(0) && locationIndex == 10 && isOnFire) {
-                instructionText.text = "Onto last room";
+                SceneManager.LoadScene("MiddleFloor");
             }
         }
 
