@@ -61,6 +61,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject key;
         public GameObject candle;
         public GameObject fire;
+        private bool isOnFire = false;
 
         //0 = main, 1 = note, 2 = chest, 3 = door
         public int locationIndex;
@@ -158,7 +159,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 candle.transform.rotation = Quaternion.AngleAxis(90, Vector3.left);
                 fire.gameObject.SetActive(true);
                 instructionText.text = "";
+                isOnFire = true;
 
+            } else if (Input.GetMouseButtonDown(0) && locationIndex == 10 && isOnFire) {
+                instructionText.text = "Onto last room";
             }
         }
 
@@ -374,6 +378,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 instructionText.text = "Click to take key";
                 locationIndex = 9;
+            } else if (other.gameObject.CompareTag("Trap Door")) {
+                instructionText.text = "Click to get out!";
+                locationIndex = 10;
             }
         }
 
