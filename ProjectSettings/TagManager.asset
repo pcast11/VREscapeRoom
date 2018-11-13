@@ -13,6 +13,8 @@ TagManager:
   - Bookshelf
   - Ladder
   - Key
+  - Fire
+  - TrapDoor
   layers:
   - Default
   - TransparentFX

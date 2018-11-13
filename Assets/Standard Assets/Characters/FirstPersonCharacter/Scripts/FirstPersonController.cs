@@ -92,6 +92,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             hasEraser = false;
             boardErased = false;
             bookPulled = false;
+            SceneManager.UnloadSceneAsync("Basement");
+            SceneManager.UnloadSceneAsync("MiddleFloor");
+            SceneManager.UnloadSceneAsync("Attic");
+
+            SceneManager.LoadScene("Basement");
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("Basement"));
 
         }
 
@@ -380,7 +386,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 instructionText.text = "Click to take key";
                 locationIndex = 9;
-            } else if (other.gameObject.CompareTag("Trap Door")) {
+            } else if (other.gameObject.CompareTag("TrapDoor")) {
                 instructionText.text = "Click to get out!";
                 locationIndex = 10;
             }
