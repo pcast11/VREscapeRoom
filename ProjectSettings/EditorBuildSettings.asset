@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiddleFloor.unity
     guid: 126196985e37047aaa5e653fd5350289
+  - enabled: 1
+    path: Assets/TextScreen.unity
+    guid: b126f1bf199614187b0c7d8df94a2c73
   m_configObjects: {}

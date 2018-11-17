@@ -64,6 +64,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject candle;
         public GameObject fire;
         private bool isOnFire = false;
+        private bool keyObtained = false;
 
         //0 = main, 1 = note, 2 = chest, 3 = door
         public int locationIndex;
@@ -95,6 +96,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             SceneManager.UnloadSceneAsync("Basement");
             SceneManager.UnloadSceneAsync("MiddleFloor");
             SceneManager.UnloadSceneAsync("Attic");
+            SceneManager.UnloadSceneAsync("TextScreen");
 
             SceneManager.LoadScene("Basement");
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("Basement"));
@@ -165,12 +167,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 Destroy(key.gameObject);
                 candle.transform.rotation = Quaternion.AngleAxis(90, Vector3.left);
+                keyObtained = true;
                 fire.gameObject.SetActive(true);
                 instructionText.text = "";
                 isOnFire = true;
 
             } else if (Input.GetMouseButtonDown(0) && locationIndex == 10 && isOnFire) {
-                SceneManager.LoadScene("MiddleFloor");
+                SceneManager.LoadScene("TextScreen");
+                locationIndex = 13;
+            } else if (Input.GetMouseButton(0) && locationIndex == 13) {
+                Application.Quit();
             }
         }
 
@@ -387,8 +393,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 instructionText.text = "Click to take key";
                 locationIndex = 9;
             } else if (other.gameObject.CompareTag("TrapDoor")) {
-                instructionText.text = "Click to get out!";
+                instructionText.text = "Click to open trap door!";
                 locationIndex = 10;
+            } else if (other.gameObject.CompareTag("ExitDoor") && !keyObtained) {
+                instructionText.text = "Door is locked. You need a key.";
+                locationIndex = 11;
+            } else if (other.gameObject.CompareTag("ExitDoor") && keyObtained) {
+                instructionText.text = "Click to exit";
+                locationIndex = 12;
             }
         }
 

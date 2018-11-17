@@ -15,6 +15,7 @@ TagManager:
   - Key
   - Fire
   - TrapDoor
+  - ExitDoor
   layers:
   - Default
   - TransparentFX
