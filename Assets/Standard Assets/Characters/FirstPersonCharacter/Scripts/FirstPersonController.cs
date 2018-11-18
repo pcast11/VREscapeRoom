@@ -128,21 +128,32 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-            if (Input.GetMouseButtonDown(0) && locationIndex == 1) {
+            if (Input.GetMouseButtonDown(0) && locationIndex == 1)
+            {
                 instructionText.text = "Code is 2625";
-            } else if (Input.GetMouseButtonDown(0) && locationIndex == 2) {
+            }
+            else if (Input.GetMouseButtonDown(0) && locationIndex == 2)
+            {
                 codeInput.gameObject.SetActive(true);
                 codeInput.ActivateInputField();
                 instructionText.text = "";
-            } else if (Input.GetMouseButtonDown(0) && locationIndex == 3) {
+            }
+            else if (locationIndex == 2 && codeInput.IsActive())
+            {
+                enterCode(codeInput.text);
+            }
+            else if (Input.GetMouseButtonDown(0) && locationIndex == 3)
+            {
                 Destroy(axe.gameObject);
                 instructionText.text = "";
                 locationIndex = 0;
                 hasAxe = true;
-            } else if (Input.GetMouseButtonDown(0) && locationIndex == 4 && hasAxe) {
+            }
+            else if (Input.GetMouseButtonDown(0) && locationIndex == 4 && hasAxe)
+            {
                 SceneManager.LoadScene("MiddleFloor");
             }
-            else if (Input.GetMouseButtonDown(0) && locationIndex == 5 )
+            else if (Input.GetMouseButtonDown(0) && locationIndex == 5)
             {
                 Destroy(eraser.gameObject);
                 hasEraser = true;
@@ -172,10 +183,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 instructionText.text = "";
                 isOnFire = true;
 
-            } else if (Input.GetMouseButtonDown(0) && locationIndex == 10 && isOnFire) {
+            }
+            else if (Input.GetMouseButtonDown(0) && locationIndex == 10 && isOnFire)
+            {
                 SceneManager.LoadScene("TextScreen");
                 locationIndex = 13;
-            } else if (Input.GetMouseButton(0) && locationIndex == 13) {
+            }
+            else if (Input.GetMouseButton(0) && locationIndex == 13)
+            {
                 Application.Quit();
             }
         }
@@ -411,8 +426,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         public void enterCode(String code) {
-            instructionText.text = "";
+
             if (string.Equals(code, "2625")) {
+                instructionText.text = "";
                 Destroy(codeInput.gameObject);
                 Destroy(chest.gameObject);
                 codeInput.gameObject.SetActive(false);
