@@ -613,7 +613,7 @@ MonoBehaviour:
   key: {fileID: 0}
   candle: {fileID: 0}
   fire: {fileID: 0}
-  locationIndex: 0
+  locationIndex: 20
 --- !u!65 &777795302
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 
 namespace UnityStandardAssets.Characters.FirstPerson
@@ -189,7 +190,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 SceneManager.LoadScene("TextScreen");
                 locationIndex = 13;
             }
-            else if (Input.GetMouseButton(0) && locationIndex == 13)
+            else if (Input.GetMouseButton(0) && locationIndex == 20)
             {
                 Application.Quit();
             }
