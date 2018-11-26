@@ -415,7 +415,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 instructionText.text = "Door is locked. You need a key.";
                 locationIndex = 11;
             } else if (other.gameObject.CompareTag("ExitDoor") && keyObtained) {
-                instructionText.text = "Click to exit";
+                instructionText.text = "Click to unlock padlock and exit";
                 locationIndex = 12;
             }
         }
