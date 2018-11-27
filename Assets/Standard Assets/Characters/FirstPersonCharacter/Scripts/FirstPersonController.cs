@@ -67,12 +67,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool isOnFire = false;
         private bool keyObtained = false;
 
+        public AudioSource fireSource;
+        public AudioClip fireClip;
+
         //0 = main, 1 = note, 2 = chest, 3 = door
         public int locationIndex;
 
         // Use this for initialization
         private void Start()
         {
+
+            fireSource.clip = fireClip;
+
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -181,6 +187,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 candle.transform.rotation = Quaternion.AngleAxis(90, Vector3.left);
                 keyObtained = true;
                 fire.gameObject.SetActive(true);
+                fireSource.Play();
                 instructionText.text = "";
                 isOnFire = true;
 
