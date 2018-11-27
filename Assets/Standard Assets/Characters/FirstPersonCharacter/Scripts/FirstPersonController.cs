@@ -11,8 +11,8 @@ using System.Collections;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
-    [RequireComponent(typeof (CharacterController))]
-    [RequireComponent(typeof (AudioSource))]
+    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
@@ -67,8 +67,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool isOnFire = false;
         private bool keyObtained = false;
 
+        public GameObject middleDoor;
+
         public AudioSource fireSource;
         public AudioClip fireClip;
+
+        public AudioSource waterSource;
+        public AudioClip waterClip;
+
+        public AudioSource musicSource;
+        public AudioClip musicClip;
+
+        public AudioSource doorSource;
+        public AudioClip doorClip;
+
+        public AudioSource winSource;
 
         //0 = main, 1 = note, 2 = chest, 3 = door
         public int locationIndex;
@@ -77,7 +90,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Start()
         {
 
-            fireSource.clip = fireClip;
 
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
@@ -85,10 +97,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
             m_StepCycle = 0f;
-            m_NextStep = m_StepCycle/2f;
+            m_NextStep = m_StepCycle / 2f;
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
-			m_MouseLook.Init(transform , m_Camera.transform);
+            m_MouseLook.Init(transform, m_Camera.transform);
 
             instructionText.text = "";
             locationIndex = 0;
@@ -107,6 +119,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             SceneManager.LoadScene("Basement");
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("Basement"));
+
+            
+            waterSource.clip = waterClip;
+            waterSource.Play();
+
+            musicSource.Play();
 
         }
 
@@ -138,6 +156,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetMouseButtonDown(0) && locationIndex == 1)
             {
                 instructionText.text = "Code is 2625";
+                waterSource.Play();
             }
             else if (Input.GetMouseButtonDown(0) && locationIndex == 2)
             {
@@ -159,6 +178,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             else if (Input.GetMouseButtonDown(0) && locationIndex == 4 && hasAxe)
             {
                 SceneManager.LoadScene("MiddleFloor");
+                musicSource.Play();
+
             }
             else if (Input.GetMouseButtonDown(0) && locationIndex == 5)
             {
@@ -175,19 +196,24 @@ namespace UnityStandardAssets.Characters.FirstPerson
             else if (Input.GetMouseButtonDown(0) && locationIndex == 7)
             {
                 bookPulled = true;
+                Destroy(middleDoor.gameObject);
+                doorSource.clip = doorClip;
+                doorSource.Play();
                 instructionText.text = "";
             }
             else if (Input.GetMouseButtonDown(0) && locationIndex == 8)
             {
                 SceneManager.LoadScene("Attic");
+                musicSource.Play();
             }
             else if (Input.GetMouseButtonDown(0) && locationIndex == 9)
             {
                 Destroy(key.gameObject);
                 candle.transform.rotation = Quaternion.AngleAxis(90, Vector3.left);
                 keyObtained = true;
+                fireSource.clip = fireClip;
                 fire.gameObject.SetActive(true);
-                fireSource.Play();
+                fireSource.PlayDelayed(2);
                 instructionText.text = "";
                 isOnFire = true;
 
@@ -195,6 +221,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             else if (Input.GetMouseButtonDown(0) && locationIndex == 10 && isOnFire)
             {
                 SceneManager.LoadScene("TextScreen");
+                musicSource.Play();
+                winSource.Play();
                 locationIndex = 13;
             }
             else if (Input.GetMouseButton(0) && locationIndex == 20)
@@ -217,16 +245,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+            Vector3 desiredMove = transform.forward * m_Input.y + transform.right * m_Input.x;
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
             Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
-                               m_CharacterController.height/2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
+                               m_CharacterController.height / 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
-            m_MoveDir.x = desiredMove.x*speed;
-            m_MoveDir.z = desiredMove.z*speed;
+            m_MoveDir.x = desiredMove.x * speed;
+            m_MoveDir.z = desiredMove.z * speed;
 
 
             if (m_CharacterController.isGrounded)
@@ -243,9 +271,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else
             {
-                m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
+                m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
             }
-            m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
+            m_CollisionFlags = m_CharacterController.Move(m_MoveDir * Time.fixedDeltaTime);
 
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
@@ -265,7 +293,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
-                m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
+                m_StepCycle += (m_CharacterController.velocity.magnitude + (speed * (m_IsWalking ? 1f : m_RunstepLenghten))) *
                              Time.fixedDeltaTime;
             }
 
@@ -308,7 +336,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Camera.transform.localPosition =
                     m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
-                                      (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
+                                      (speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
             }
@@ -356,7 +384,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
-            m_MouseLook.LookRotation (transform, m_Camera.transform);
+            m_MouseLook.LookRotation(transform, m_Camera.transform);
         }
 
 
@@ -373,21 +401,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return;
             }
-            body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
+            body.AddForceAtPosition(m_CharacterController.velocity * 0.1f, hit.point, ForceMode.Impulse);
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Code Note")) {
+            if (other.gameObject.CompareTag("Code Note"))
+            {
                 instructionText.text = "Read Note";
                 locationIndex = 1;
-            } else if (other.gameObject.CompareTag("Code Chest"))
+            }
+            else if (other.gameObject.CompareTag("Code Chest"))
             {
                 instructionText.text = "Click to enter passcode";
                 locationIndex = 2;
-            } else if (other.gameObject.CompareTag("Axe")) {
+            }
+            else if (other.gameObject.CompareTag("Axe"))
+            {
                 instructionText.text = "Click to pick up axe";
-            } else if (other.gameObject.CompareTag("Door")) {
+            }
+            else if (other.gameObject.CompareTag("Door"))
+            {
                 instructionText.text = "Click to break down door";
                 locationIndex = 4;
             }
@@ -415,13 +449,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 instructionText.text = "Click to take key";
                 locationIndex = 9;
-            } else if (other.gameObject.CompareTag("TrapDoor")) {
+            }
+            else if (other.gameObject.CompareTag("TrapDoor"))
+            {
                 instructionText.text = "Click to open trap door!";
                 locationIndex = 10;
-            } else if (other.gameObject.CompareTag("ExitDoor") && !keyObtained) {
+            }
+            else if (other.gameObject.CompareTag("ExitDoor") && !keyObtained)
+            {
                 instructionText.text = "Door is locked. You need a key.";
                 locationIndex = 11;
-            } else if (other.gameObject.CompareTag("ExitDoor") && keyObtained) {
+            }
+            else if (other.gameObject.CompareTag("ExitDoor") && keyObtained)
+            {
                 instructionText.text = "Click to unlock padlock and exit";
                 locationIndex = 12;
             }
@@ -433,9 +473,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             locationIndex = 0;
         }
 
-        public void enterCode(String code) {
+        public void enterCode(String code)
+        {
 
-            if (string.Equals(code, "2625")) {
+            if (string.Equals(code, "2625"))
+            {
                 instructionText.text = "";
                 Destroy(codeInput.gameObject);
                 Destroy(chest.gameObject);
@@ -443,7 +485,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 locationIndex = 3;
                 instructionText.text = "Click to pick up axe";
                 axe.gameObject.SetActive(true);
-            } else {
+            }
+            else
+            {
 
             }
         }

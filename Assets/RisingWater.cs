@@ -13,6 +13,6 @@ public class RisingWater : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(new Vector3(0, 0.01f, 0) * Time.deltaTime, Space.World);
+        transform.Translate(new Vector3(0, 0.005f, 0) * Time.deltaTime, Space.World);
 	}
 }
