@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{7C5C9231-7C14-AF71-800F-A536A8B72662}</ProjectGuid>
+    <ProjectGuid>{E3822EFC-003C-7470-2306-EE1B9D4F8062}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -258,6 +258,7 @@
     <Compile Include="Assets\SteamVR_Input\ActionObjects\SteamVR_Input_ActionSet_platformer_In.cs" />
     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_Actions.cs" />
     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
+    <Compile Include="Assets\SteamVR_Input\ViveInput.cs" />
     <Compile Include="Assets\WaterRise.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
@@ -295,22 +296,22 @@
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Readme_InteractionSystem.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.postprocessing.Editor">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.postprocessing.Runtime">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -508,7 +509,7 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Valve.Newtonsoft.Json">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/class/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
@@ -546,7 +547,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{F9FA1619-C968-B8FE-A24B-CC95DACC675B}</Project>
+      <Project>{BBD61FE3-CFE9-F8B5-A118-3DA0A9F26C08}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>

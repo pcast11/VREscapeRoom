@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeTolerance: 0.000001
   fullPath: /actions/buggy/in/Reset
-  actionSet: {fileID: 11400000, guid: 85a3aec592d76284088e0ce6db318e3b, type: 2}
+  actionSet: {fileID: 11400000, guid: e0ce299b94e271c4daf26da651daf869, type: 2}
   direction: 0

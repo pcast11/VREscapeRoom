@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f6c0d7b5a00aa4a8d38a09a0480032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonAction: {fileID: 0}
+  skeletonAction: {fileID: 11400000, guid: bd5bb7abbef6a4c498e9f539c01882e9, type: 2}
   inputSource: 2
   rangeOfMotion: 0
   skeletonRoot: {fileID: 0}
@@ -548,11 +548,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 347236817}
@@ -1835,12 +1835,16 @@ MonoBehaviour:
   key: {fileID: 1812807735}
   candle: {fileID: 1035881240}
   fire: {fileID: 475498088}
+  middleDoor: {fileID: 0}
   fireSource: {fileID: 510191564}
   fireClip: {fileID: 8300000, guid: bfc038010d0905f41a632e88f0aae677, type: 3}
   waterSource: {fileID: 0}
   waterClip: {fileID: 0}
   musicSource: {fileID: 2104386571}
   musicClip: {fileID: 8300000, guid: fb7d3c9dd846c44008878a64cd5e6f52, type: 3}
+  doorSource: {fileID: 0}
+  doorClip: {fileID: 0}
+  winSource: {fileID: 0}
   locationIndex: 0
 --- !u!65 &1007936436
 BoxCollider:

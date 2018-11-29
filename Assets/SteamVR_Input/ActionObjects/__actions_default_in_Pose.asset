@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeTolerance: 0.000001
   fullPath: /actions/default/in/Pose
-  actionSet: {fileID: 11400000, guid: ced7d0ad5f49d13479f92c6b4a2fe2e0, type: 2}
+  actionSet: {fileID: 11400000, guid: 9a902a1eea8a10e43978253bc0dbabda, type: 2}
   direction: 0

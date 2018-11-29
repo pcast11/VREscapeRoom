@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{2A1FAC9D-29DD-4F3B-D987-D8A1B936828A}</ProjectGuid>
+    <ProjectGuid>{002FE45E-70DF-A900-AC1E-AE2525C4AE18}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
@@ -68,22 +68,22 @@
     <Compile Include="Assets\Standard Assets\Editor\Water\Water4\WaterBaseEditor.cs" />
     <Compile Include="Assets\Standard Assets\Editor\Water\Water4\WaterEditorUtility.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.postprocessing.Editor">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.postprocessing.Runtime">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -325,11 +325,14 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="PackageManagerAssembly">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Assets/EffectExamples/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
-    </Reference>
     <Reference Include="Valve.Newtonsoft.Json">
-      <HintPath>D:/Downloads/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/VREscapeRoom-27c251a553ee2f555ebb781be922190bf46f1098/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PackageManagerAssembly">
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Assets/EffectExamples/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.Mono.Cecil">
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Assets/UnityVS/Editor/SyntaxTree.Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/class/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -348,6 +351,12 @@
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityVS.VersionSpecific">
+      <HintPath>D:/Documents/EscapeRoom/EscapeRoom/VREscapeRoom/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>
@@ -379,7 +388,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{F9FA1619-C968-B8FE-A24B-CC95DACC675B}</Project>
+      <Project>{BBD61FE3-CFE9-F8B5-A118-3DA0A9F26C08}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>
